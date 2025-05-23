@@ -170,6 +170,32 @@ clasp push
    * Run `preprocessStudentData()` to refresh stored availability and interest data.  
 7. **Python Community Detection**  
    * A separate Python file (`community_detection.py`) can be used to detect natural student groupings based on overlapping interests.  
-   * Outputs include visual graphs, cluster assignments, and CSV exports.   
+   * Outputs include visual graphs, cluster assignments, and CSV exports.
+  
+---
 
+## **Managing Secrets (e.g., HubSpot API Key)**
 
+To keep private keys like your HubSpot API token secure, avoid hardcoding them directly into version-controlled code.
+
+### **✅ Recommended Approach: Use Script Properties**
+
+Store secrets securely using Apps Script’s built-in property service:
+
+1. **Set the key manually** (run once from the script editor):
+
+```
+PropertiesService.getScriptProperties().setProperty('HUBSPOT_API_KEY', 'your-api-key-here');
+```
+
+2.   
+   **Access it securely in your script**:
+
+```
+const apiKey = PropertiesService.getScriptProperties().getProperty('HUBSPOT_API_KEY');
+```
+
+3.   
+   **Remove hardcoded secrets** before committing to GitHub.
+
+Script Properties are stored securely and not visible in your codebase, making this the ideal method for managing authentication tokens.
