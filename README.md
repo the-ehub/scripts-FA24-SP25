@@ -12,7 +12,7 @@ This project supports a suite of tools designed to:
 
 Additionally, the project contains utility and helper functions that support general sheet operations, filtering, clustering, and data extraction.
 
-The Google Apps Script code can be found by going to [this sheet](https://docs.google.com/spreadsheets/d/10EtGplen7xTupr5-WehA1tfHkR8_mZJ3NQuv2WeQ0Yg/edit?usp=sharing) (access must be given first) and clicking Extensions \> Apps Script in the navigation bar.  
+The Google Apps Script code can be edited directly by going to [this sheet](https://docs.google.com/spreadsheets/d/10EtGplen7xTupr5-WehA1tfHkR8_mZJ3NQuv2WeQ0Yg/edit?usp=sharing) (access must be given first) and clicking Extensions \> Apps Script in the navigation bar.  
 
 The project is organized into two main directories:
 * `apps-script/` — Contains all Google Apps Script .gs and .html files managed via CLASP, grouped by functionality.
