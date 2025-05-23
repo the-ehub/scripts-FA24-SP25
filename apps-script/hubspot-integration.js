@@ -50,7 +50,7 @@ function updatePropertiesInSheet(properties) {
  */
 function getPropertiesFromHubSpot(email, properties) {
   const url = `https://api.hubapi.com/crm/v3/objects/contacts/search`; // HubSpot API endpoint for searching contacts
-  const apiKey = 'REDACTED'; // Use your private app token
+  const apiKey = PropertiesService.getScriptProperties().getProperty('HUBSPOT_API_KEY');
   const payload = {
     filterGroups: [{
       filters: [{
