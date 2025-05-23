@@ -163,6 +163,13 @@ clasp push
 4. **Running Team Matching**  
    * Run `runMatchmaking()` to generate leader-member matches.  
    * Use `createMatchDocs()` and `createMemberMatchDocs()` to generate detailed Google Docs summarizing the matches.  
-5. **Updating Preprocessed Data**  
-   * Run `preprocessStudentData()` to refresh stored availability and interest data.
+5. **Syncing HubSpot Data**  
+   * Run `integrateMain()` with the desired HubSpot properties to pull.  
+   * Make sure your script has the correct API token for HubSpot authentication.  
+6. **Updating Preprocessed Data**  
+   * Run `preprocessStudentData()` to refresh stored availability and interest data.  
+7. **Python Community Detection**  
+   * A separate Python file (`community_detection.py`) can be used to detect natural student groupings based on overlapping interests.  
+   * Outputs include visual graphs, cluster assignments, and CSV exports.   
+
 
