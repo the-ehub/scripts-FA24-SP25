@@ -1,19 +1,22 @@
-# **eHub Google Apps Script Project: Scheduling, Matching, and Availability** 
+# **The eHub Data + Systems Project: Scheduling, Matching, and Availability** 
 
 ## **Overview**
 
-This Google Apps Script project supports a suite of tools designed to:
+This project supports a suite of tools designed to:
 
 1. **Schedule students** into tracks or events based on their availability.  
 2. **Query students** available at a given time with particular interests.  
 3. **Match students** into complementary teams using structured input data.  
 4. **Integrate with HubSpot** to enhance student records with additional properties.
+5. **Detect and visualize student communities** based on shared interests (via a standalone Python script).
 
 Additionally, the project contains utility and helper functions that support general sheet operations, filtering, clustering, and data extraction.
 
-The code can be found by going to [this sheet](https://docs.google.com/spreadsheets/d/10EtGplen7xTupr5-WehA1tfHkR8_mZJ3NQuv2WeQ0Yg/edit?usp=sharing) (access must be given first) and clicking Extensions \> Apps Script in the navigation bar.  
+The Google Apps Script code can be found by going to [this sheet](https://docs.google.com/spreadsheets/d/10EtGplen7xTupr5-WehA1tfHkR8_mZJ3NQuv2WeQ0Yg/edit?usp=sharing) (access must be given first) and clicking Extensions \> Apps Script in the navigation bar.  
 
-The project is organized into 8 code files (7 `.gs` and 1 `.html`), grouped by functionality and naming conventions.
+The project is organized into two main directories:
+* `apps-script/` — Contains all Google Apps Script .gs and .html files managed via CLASP, grouped by functionality.
+* `other-scripts/` — Contains supplemental tools, currently the Python script used for interest-based community detection.
 
 ---
 
@@ -66,7 +69,20 @@ This section supports finding students available at a specific time and day who 
   * `getPropertiesFromHubSpot(email, properties)` makes a call to the HubSpot CRM API to retrieve the requested properties for a given contact email.  
   * `integrateMain()` is an example function call to populate major/minor fields.
 
-### **5\. Miscellaneous Utilities**
+### **5\. Community Detection (Python-based)**
+
+* **community\_detection.py** (local Python script) – Provides logic for identifying natural student communities based on shared interests:  
+  * Loads interest data from `student_data.json` and filters target students via a CSV.  
+  * Builds a co-occurrence graph of shared interests and applies **Louvain community detection**.  
+  * Assigns students to clusters based on which group of interests they align with most.  
+  * Visualizes the results as:  
+    * A network graph showing clustered interests  
+    * A heatmap of co-occurrence  
+    * Summary tables of top interests per group  
+    * Email lists per community/track for outreach or scheduling  
+* Outputs: `student_interest_clusters.csv` containing all cluster assignments.
+
+### **6\. Miscellaneous Utilities**
 
 * **kmeans.gs** – Provides basic K-Means clustering functionality:  
   * `kMeansClustering(data, k)` clusters vectors (e.g., numeric encodings of preferences or skills) into `k` groups.  
