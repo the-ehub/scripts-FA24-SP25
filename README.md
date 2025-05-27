@@ -150,7 +150,8 @@ clasp push
 
 1. **Set Up**  
    * Attach this script project to a Google Sheet with student availability and interest form responses.  
-   * Ensure consistent column names across forms (e.g., "Email Address", "Interests", etc.). ⚠️ Some functions are highly dependent on sheet names, column names, and column locations within a sheet. Be sure to check for this before running scripts to prevent logical errors. ⚠️  
+   * Ensure consistent column names across forms (e.g., "Email Address", "Interests", etc.).
+   * ⚠️ Some functions are highly dependent on sheet names, column names, and column locations within a sheet. Be sure to check for this before running scripts to prevent logical errors. 
 2. **Running Scheduling Logic**  
    * Use `processAvailabilityByTrack()` or `processAvailabilityBySheet()` to generate track- or group-specific availability slots.  
    * Use `selectTimeSlots()` or `getIterativeTimeSlots()` to generate the minimum number of slots or most efficient time slot assignments.  
